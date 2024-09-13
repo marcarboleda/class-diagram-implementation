@@ -103,7 +103,7 @@ void displayProd() {
             cin >> selectedId;
 
             bool found = false;
-            for (const Product &product : items) {
+            for (Product &product : items) {
                 if (product.prodId == selectedId) {
                     found = true;
                     cout << "Enter quantity: ";
