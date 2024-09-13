@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 class Product {
@@ -39,13 +40,17 @@ public:
         }
 
         cout << "\nShopping Cart:\n";
-        cout << "Product ID     Name        Price       Quantity" << endl;
+        cout << setw(10) << "Product ID "
+                << setw(15) << "Name"
+                << setw(10) << "Price"
+                << setw(10) << "Quantity" << endl;
+
         double totalAmount = 0.0;
         for (size_t i = 0; i < cartItems.size(); i++) {
             const Product& product = cartItems[i];
             totalAmount += product.prodPrice * quantities[i];
-            cout << product.prodId << "          " << product.prodName << "          "
-                 << product.prodPrice << "          " << quantities[i] << endl;
+            cout << setw(10) << product.prodId << setw(15) << product.prodName << setw(10)
+                 << product.prodPrice << setw(10) << quantities[i] << endl;
         }
         cout << "Total Amount: " << totalAmount << endl;
     }
@@ -81,11 +86,15 @@ void addProduct() {
 void displayProd() {
     char addChoice;
     do {
-        cout << "Product Details:";
-        cout << "\nProduct ID     Name        Price       Quantity" << endl;
+        cout << "Product Details:\n";
+        cout << setw(10) << "Product ID "
+                << setw(15) << "Name"
+                << setw(10) << "Price"
+                << setw(10) << "Quantity" << endl;
+
         for (const Product &product : items) {
-            cout << product.prodId << "          " << product.prodName << "          "
-                 << product.prodPrice << "          " << product.prodStock << endl;
+            cout << setw(10) << product.prodId << setw(15) << product.prodName << setw(10)
+                 << product.prodPrice << setw(10) << product.prodStock << endl;
         }
 
         cout << "Add product to shopping cart (Y/N): ";
