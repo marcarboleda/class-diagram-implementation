@@ -35,7 +35,7 @@ public:
 
     void viewCart() {
         if (cartItems.empty()) {
-            cout << "Shopping cart is empty." << endl;
+            cout << "\nShopping cart is empty.\n" << endl;
             return;
         }
 
@@ -63,30 +63,11 @@ public:
 
 ShopCart cart;
 
-void addProduct() {
-    string prodId, prodName;
-    double prodPrice, prodStock;
-
-    cout << "Enter product ID: ";
-    cin.ignore();
-    getline(cin, prodId);
-
-    cout << "Enter product name: ";
-    getline(cin, prodName);
-
-    cout << "Enter price: ";
-    cin >> prodPrice;
-
-    cout << "Enter number of stock: ";
-    cin >> prodStock;
-
-    items.push_back(Product(prodId, prodName, prodPrice, prodStock));
-}
 
 void displayProd() {
     char addChoice;
     do {
-        cout << "Product Details:\n";
+        cout << "\nProduct Details:\n";
         cout << setw(10) << "Product ID "
                 << setw(15) << "Name"
                 << setw(10) << "Price"
@@ -97,18 +78,18 @@ void displayProd() {
                  << product.prodPrice << setw(10) << product.prodStock << endl;
         }
 
-        cout << "Add product to shopping cart (Y/N): ";
+        cout << "\nAdd product to shopping cart (Y/N): ";
         cin >> addChoice;
 
         while (addChoice != 'Y' && addChoice != 'N') {
-            cout << "Invalid input. Please enter Y or N only: ";
+            cout << "\nInvalid input. Please enter Y or N only: ";
             cin >> addChoice;
         }
 
         if (addChoice == 'Y' || addChoice == 'y') {
             string selectedId;
             int quantity;
-            cout << "Enter product ID to add to cart: ";
+            cout << "\nEnter product ID to add to cart: ";
             cin >> selectedId;
 
             bool found = false;
@@ -122,13 +103,13 @@ void displayProd() {
                         cout << "Product added to cart." << endl;
                         product.prodStock -= quantity; // Reduce stock
                     } else {
-                        cout << "Insufficient stock." << endl;
+                        cout << "\nInsufficient stock.\n" << endl;
                     }
                     break;
                 }
             }
             if (!found) {
-                cout << "Product not found." << endl;
+                cout << "\nProduct not found.\n" << endl;
             }
         }
     } while (addChoice != 'N');
@@ -136,7 +117,7 @@ void displayProd() {
 
 void viewOrder() {
     if (cart.cartItems.empty()) {
-        cout << "Your order is empty." << endl;
+        cout << "\nYour order is empty." << endl;
         return;
     }
 
@@ -148,14 +129,14 @@ void viewOrder() {
 
     if (checkoutChoice == 'Y' || checkoutChoice == 'y') {
         cart.clearCart();
-        cout << "Checkout successful!" << endl;
+        cout << "\nCheckout successful!\n" << endl;
     }
 }
 
 int main() {
     int choice;
     do {
-        cout << "---------------------------------" << endl;
+        cout << "\n---------------------------------" << endl;
         cout << "       Online Grocery Store      " << endl;
         cout << "---------------------------------" << endl;
         cout << "Menu: \n";
@@ -167,7 +148,7 @@ int main() {
         cin >> choice;
 
         while (choice < 1 || choice > 4) {
-            cout << "Invalid input. Please try again\n";
+            cout << "\nInvalid input. Please try again\n";
             cin >> choice;
         }
 
@@ -185,7 +166,7 @@ int main() {
                 break;
 
             case 4:
-                cout << "Thank you for using the Online Grocery Store!" << endl;
+                cout << "\nThank you for using the Online Grocery Store!\n" << endl;
                 break;
 
             default:
